@@ -1,0 +1,150 @@
+:root {
+  --font: "Barlow Semi Condensed", sans-serif;
+  --w1: 600;
+  --w2: 500;
+  --p1: 16px;
+  --p2: 13px;
+  --purple-50: #eee5ff;
+  --purple-300: #c4a2f6;
+  --purple-500: #7541c8;
+  --white: #fff;
+  --grey-100: #e7eaee;
+  --grey-200: #cfcfcf;
+  --grey-400: #676d7e;
+  --grey-500: #48556a;
+  --dark-blue: #19212e;
+  --black: #121212;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--white);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+.main {
+  min-height: 100vh;
+  display: grid;
+  gap: 1.5rem;
+  padding: var(--p1);
+  place-content: center;
+  place-items: center;
+  grid-auto-columns: 300px;
+  grid-auto-rows: 340px;
+  grid-template-areas: 
+  "card-1 card-1 card-1 card-2 card-5"
+  "card-3 card-4 card-4 card-4 card-5";
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: var(--w1);
+}
+
+.card {
+  padding: 2rem;
+  border-radius: var(--p2);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: var(--p1);
+  width: 100%;
+  height: 100%;
+  box-shadow: 5px 20px 20px var(--grey-200);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: var(--p1);
+}
+
+.profile img {
+  border-radius: 50%;
+}
+
+.profile p:first-child {
+  font-weight: var(--w2);
+  margin-top: .12rem;
+}
+
+.profile p:last-child {
+  font-weight: var(--w1);
+  margin-top: .12rem;
+  font-size: var(--p2);
+}
+
+.comment p {
+  font-weight: var(--w2);
+}
+
+.card-1 {
+  background-color: var(--purple-500);
+  grid-area: card-1;
+  position: relative;
+  z-index: 1;
+}
+
+.quote {
+  position: absolute;
+  z-index: -1;
+  right: 5rem;
+  top: 1rem;
+  user-select: none;
+}
+
+.card-2 {
+  background-color: var(--grey-400);
+  grid-area: card-2;
+}
+
+.card-3 {
+  background-color: var(--white);
+  color: var(--grey-500);
+  grid-area: card-3;
+}
+
+.card-4 {
+  background-color: var(--dark-blue);
+  color: var(--grey-200);
+  grid-area: card-4;
+}
+
+.card-5 {
+  background-color: var(--white);
+  color: var(--grey-500);
+  grid-area: card-5;
+}
+
+@media (max-width: 1620px) {
+  .main {
+    grid-auto-columns: 280px;
+    grid-auto-rows: 400px;
+    grid-template-areas: 
+    "card-1 card-1 card-3"
+    "card-4 card-4 card-4"
+    "card-2 card-5 card-5";
+  }
+}
+
+@media (max-width: 925px) {
+  .main {
+    grid-auto-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+    "card-1"
+    "card-2"
+    "card-3"
+    "card-4"
+    "card-5";
+  }
+}
